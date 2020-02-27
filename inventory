@@ -2,3 +2,9 @@
 hosts:
   localhost:
     ansible_connection: local
+  web01:
+    ansible_host: server01.example.com
+  app01:
+    ansible_host: server02.example.com
+  db01:
+    ansible_host: server03.example.com

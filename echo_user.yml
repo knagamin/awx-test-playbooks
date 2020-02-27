@@ -1,6 +1,6 @@
 ---
-- name: Echo ansible_user_id
-  hosts: all
+- name: Greeting
+  hosts: localhost
   tasks:
     - debug:
-        var: ansible_user_id
+        var: "Hello, Ansible Tower"
