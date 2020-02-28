@@ -3,4 +3,4 @@
   hosts: localhost
   tasks:
     - debug:
-        var: "Hello, Ansible Tower"
+        msg: "Hello, Ansible Tower"
