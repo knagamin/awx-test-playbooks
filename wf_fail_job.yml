@@ -1,0 +1,7 @@
+---
+- name: FAIL JOB
+  hosts: localhost
+  tasks:
+    - debug:
+        msg: "This JOB is always failed"
+      failed_when: true

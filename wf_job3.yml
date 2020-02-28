@@ -1,0 +1,6 @@
+---
+- name: JOB3
+  hosts: localhost
+  tasks:
+    - debug:
+        msg: "JOB3 is executed!"
