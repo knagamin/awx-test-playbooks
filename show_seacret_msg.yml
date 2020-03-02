@@ -1,0 +1,8 @@
+---
+- name: Show decrypted message
+  hosts: localhost
+  vars_files:
+    - crypted_vars.yml
+  tasks:
+    - debug:
+        msg: "{{ msg }}"
