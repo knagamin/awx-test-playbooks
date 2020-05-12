@@ -1,0 +1,5 @@
+---
+aci_host: "sandboxapicdc.cisco.com"
+aci_username: "admin"
+aci_password: "ciscopsdt"
+aci_check_faults_valid_mode: false

@@ -1,0 +1,8 @@
+---
+- name: Faults Check
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+  roles:
+    - role: aci_check_faults

@@ -1,0 +1,29 @@
+---
+- name: Get All Faults
+  aci_rest:
+    host: "{{ aci_host }}"
+    username: "{{ aci_username }}"
+    password: "{{ aci_password }}"
+    path: "/api/node/class/faultSummary.json?order-by=faultSummary.severity|desc"
+    method: get
+    validate_certs: false
+  register: _res
+
+- name: Extract non-Acked faults
+  set_fact:
+    _non_acked_faults: >-
+      {{ _res.imdata
+         | selectattr("faultSummary.attributes.nonAcked", "!=", "0")
+         | map(attribute="faultSummary.attributes")
+         | list }}
+
+- name: Debug non-Acked faults
+  debug:
+    msg: "{{ _non_acked_faults }}"
+
+- name: Test if non-Acked faults are not found
+  assert:
+    that: _non_acked_faults | length == 0
+    fail_msg: "Non-Acked faults are found. Please check the faults indicated in previous task output."
+    success_msg: "There are no unusual faults."
+  when: aci_check_faults_valid_mode

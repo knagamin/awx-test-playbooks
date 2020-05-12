@@ -1,0 +1,8 @@
+---
+- name: Test if variables are valid
+  assert:
+    that:
+      - aci_host is string
+      - aci_username is string
+      - aci_password is string
+      - aci_check_faults_valid_mode | type_debug == 'bool'

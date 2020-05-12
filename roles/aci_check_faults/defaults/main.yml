@@ -1,0 +1,14 @@
+---
+# IP Address or hostname of APIC resolvable by Ansible control host
+# aci_host:
+
+# Login username for APIC
+# aci_username:
+
+# Login password for APIC
+# aci_password:
+
+# Flag to validate a existence of non-Acked faults
+#  true - if non-Acked fault is found, task will be failed
+#  false - task always results to OK
+aci_check_faults_valid_mode: true

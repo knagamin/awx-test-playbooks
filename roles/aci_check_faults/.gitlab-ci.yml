@@ -1,0 +1,13 @@
+---
+stages:
+  - test
+
+ROLE_TEST:
+  stage: test
+  before_script:
+    - ansible --version
+    - molecule --version
+    - ansible-lint --version
+  script:
+    - molecule test
+  image: centos7_ansible296_molecule3
